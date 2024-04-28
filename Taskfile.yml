@@ -1,0 +1,17 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  build:
+    cmds:
+      - docker-compose -f docker/docker-compose.yml build
+  build-nocache:
+    cmds:
+      - docker-compose -f docker/docker-compose.yml build --no-cache
+  run:
+    cmds:
+      - docker-compose -f docker/docker-compose.yml run app go run main.go
+  down:
+    cmds:
+      - docker-compose -f docker/docker-compose.yml down

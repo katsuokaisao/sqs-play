@@ -9,9 +9,24 @@ tasks:
   build-nocache:
     cmds:
       - docker-compose -f docker/docker-compose.yml build --no-cache
-  run:
+  sendMessage:
     cmds:
-      - docker-compose -f docker/docker-compose.yml run app go run main.go
+      - docker-compose -f docker/docker-compose.yml run app go run main.go sendMessage
+  sendMessageBatch:
+    cmds:
+      - docker-compose -f docker/docker-compose.yml run app go run main.go sendMessageBatch
+  getQueueAttribute:
+    cmds:
+      - docker-compose -f docker/docker-compose.yml run app go run main.go getQueueAttribute
+  receiveMessage:
+    cmds:
+      - docker-compose -f docker/docker-compose.yml run app go run main.go receiveMessage
+  deleteMessage:
+    cmds:
+      - docker-compose -f docker/docker-compose.yml run app go run main.go deleteMessage
+  deleteMessageBatch:
+    cmds:
+      - docker-compose -f docker/docker-compose.yml run app go run main.go deleteMessageBatch
   down:
     cmds:
       - docker-compose -f docker/docker-compose.yml down
